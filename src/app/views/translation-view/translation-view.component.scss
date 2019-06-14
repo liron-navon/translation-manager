@@ -1,0 +1,36 @@
+.form-field-warning {
+  ::ng-deep .mat-form-field-underline {
+    background-color: red;
+  }
+
+  ::ng-deep input {
+    color: red;
+  }
+
+  ::ng-deep label.mat-form-field-label {
+    color: red;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.translations-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.translations-title {
+  margin: 16px;
+}
+
+.notes-container {
+  padding: 16px;
+}
+
+mat-form-field {
+  padding-left: 16px;
+  padding-right: 16px;
+}

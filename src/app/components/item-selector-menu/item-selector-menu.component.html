@@ -1,0 +1,94 @@
+<div class="wrapper">
+  <h2 class="mat-h2">Keywords</h2>
+  <span class="mat-caption">
+    Total {{ translationsService.keywords && translationsService.keywords.length || 0 }}
+    texts, {{ translationsService.keywordsWarnings || 0 }} warnings
+  </span>
+
+  <h4 class="mat-h4 margin-0">Filter by Translation</h4>
+  <div class="controls">
+    <div class="flex-1">
+      <mat-form-field>
+        <mat-label>Language</mat-label>
+        <select matNativeControl [(ngModel)]="languageFilter.language">
+          <option *ngFor="let lang of translationsService.languages"
+                  [value]="lang">
+            {{lang | localeName}}
+          </option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="controls-spacer"></div>
+    <div class="flex-2">
+      <mat-form-field>
+        <input matInput
+               [(ngModel)]="languageFilter.languageFilter"
+               placeholder="Translation">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <h4 class="mat-h4 margin-0">Filter by Keyword</h4>
+  <div class="controls">
+    <mat-form-field>
+      <input matInput
+             [(ngModel)]="filterWord"
+             placeholder="Filter">
+    </mat-form-field>
+    <div class="controls-spacer"></div>
+    <button mat-icon-button
+            mat-raised-button
+            (click)="openDialog()"
+            aria-label="add text"
+            matTooltip="add text">
+      <mat-icon aria-label="add text" color="accent">
+        add
+      </mat-icon>
+    </button>
+    <div class="controls-spacer"></div>
+    <button mat-icon-button
+            mat-raised-button
+            [color]="editMode ? 'primary' : undefined"
+            (click)="toggleEditMode()"
+            aria-label="edit keys"
+            [matTooltip]="editMode ? 'exit edit mode (applies key renaming)' : 'enter edit mode'">
+      <mat-icon aria-label="edit keys" color="accent">
+        edit
+      </mat-icon>
+    </button>
+  </div>
+
+  <mat-action-list *ngIf="!editMode" role="list" class="items-list cursor-pointer">
+    <mat-list-item *ngFor="let keyword of keywords"
+                   (click)="translationsService.selectActiveKeyword(keyword.key)"
+                   [ngClass]="{
+                 'active-item': translationsService.activeKeyword === keyword.key,
+                 'item-warn': keyword.missingTranslation
+                 }"
+                   role="listitem">
+      {{ keyword.key }}
+    </mat-list-item>
+  </mat-action-list>
+
+  <mat-list *ngIf="editMode" role="list" class="items-list">
+    <mat-list-item *ngFor="let keyword of keywords"
+                   [ngClass]="{
+                 'active-item': translationsService.activeKeyword === keyword.key,
+                 'item-warn': keyword.missingTranslation
+                 }"
+                   role="listitem">
+
+      <button mat-icon-button (click)="deleteKeyword(keyword.key)">
+        <mat-icon aria-label="edit keys">
+          delete
+        </mat-icon>
+      </button>
+
+      <mat-form-field class="example-full-width">
+        <input matInput
+               (change)="onKeyChange(keyword.key, $event.target.value)"
+               [value]="keyword.key">
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,0 +1,36 @@
+.mat-list-item.item-warn {
+  color: red;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  &-spacer {
+    width: 16px;
+  }
+}
+
+.wrapper {
+  padding-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-list-item.mat-list-item {
+  height: auto;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.4);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.active-item {
+  background: rgba(200, 200, 200, 0.4);
+}
+
+.items-list {
+  width: 360px;
+}

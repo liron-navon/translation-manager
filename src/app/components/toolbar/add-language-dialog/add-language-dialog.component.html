@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Add Language</h1>
+
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <input placeholder="Locale" matInput [(ngModel)]="data.language" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Default initial values to</mat-label>
+    <select matNativeControl required [(ngModel)]="data.defaultTo">
+      <option *ngFor="let def of data.defaultToOptions"
+              [value]="def">
+        {{def | localeName}}
+      </option>
+    </select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button
+          [disabled]="!data.language"
+          [mat-dialog-close]="data"
+          cdkFocusInitial>Done</button>
+</div>

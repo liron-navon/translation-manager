@@ -1,0 +1,11 @@
+<div class="projects-list-title">
+  <h2 class="mat-h2 margin-0">{{translationsService.collection.name}}</h2>
+</div>
+<mat-action-list role="list" class="items-list cursor-pointer">
+  <mat-list-item *ngFor="let project of translationsService.collection.projects"
+                 (click)="openProject(project)"
+                 [ngClass]="{'active-item': translationsService.title === project.name}"
+                 role="listitem">
+    {{ project.name }}
+  </mat-list-item>
+</mat-action-list>

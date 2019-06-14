@@ -1,0 +1,49 @@
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "themes";
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.snackbar-error {
+  background: #ff6666;
+}
+
+.snackbar-success {
+  background: #2196F3;
+}
+
+.flex-1 {
+  flex: 1;
+
+  .mat-form-field-infix {
+    width: unset;
+  }
+}
+
+.flex-2 {
+  flex: 2;
+
+  .mat-form-field-infix {
+    width: unset;
+  }
+}
+
+.flex-3 {
+  flex: 3;
+
+  .mat-form-field-infix {
+    width: unset;
+  }
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

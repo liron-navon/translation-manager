@@ -1,0 +1,19 @@
+<ng-container>
+  <app-toolbar></app-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav *ngIf="translationsService.project" mode="side" opened>
+      <app-item-selector-menu></app-item-selector-menu>
+    </mat-sidenav>
+
+    <mat-sidenav *ngIf="translationsService.collection" mode="side" position="end" opened>
+      <app-project-selector-menu></app-project-selector-menu>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

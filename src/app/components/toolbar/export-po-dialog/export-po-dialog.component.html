@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Add Language</h1>
+
+<div mat-dialog-content class="dialog-content">
+  <!-- it works, but might cause issues, need to rethink it -->
+
+  <mat-form-field>
+    <mat-label>From language</mat-label>
+    <select matNativeControl required [(ngModel)]="data.from">
+      <option *ngFor="let def of data.fromOptions"
+              [value]="def">
+        {{def | localeName}}
+      </option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>To language</mat-label>
+    <select matNativeControl required [(ngModel)]="data.to">
+      <option *ngFor="let def of data.toOption"
+              [value]="def">
+        {{def | localeName}}
+      </option>
+    </select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button
+          [disabled]="!data.to"
+          [mat-dialog-close]="data"
+          cdkFocusInitial>Done</button>
+</div>

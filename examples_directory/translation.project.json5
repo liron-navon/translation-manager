@@ -1,0 +1,20 @@
+{
+  // defines a name for the project
+  "name": "my-collection",
+  // defines forced options
+  "options": {
+    "disableNotes": false,
+    "trim": true
+  },
+  // defines projects to be used
+  "projects": [
+    {
+      "name": "Feature A",
+      "path": "./feature-a"
+    },
+    {
+      "name": "Feature B",
+      "path": "./feature-b"
+    }
+  ]
+}

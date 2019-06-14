@@ -1,0 +1,160 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h2 class="mat-title">
+      {{ translation.title || 'Select a project to translate' }}
+    </h2>
+
+    <button mat-icon-button
+            matTooltip="open a collection of projects (json file)"
+            aria-label="open a collection of projectsn"
+            (click)="openCollection(null)">
+      <mat-icon>
+        photo_library
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            matTooltip="open a single project (folder)"
+            aria-label="open project"
+            (click)="openProject(null)">
+      <mat-icon>
+        photo
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            [color]="translation.hasChanges ? 'accent' : undefined"
+            aria-label="save"
+            [matTooltip]="translation.hasChanges ? 'save (has changes)' : 'save'"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="saveChanges()">
+      <mat-icon aria-label="save">
+        save
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="import CSV"
+            matTooltip="import CSV"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="uploadCSV()">
+      <mat-icon
+        svgIcon="app_icon_csv_upload"
+        aria-label="import CSV">
+      </mat-icon>
+    </button>
+    
+    <button mat-icon-button
+            aria-label="export as CSV"
+            matTooltip="export as CSV"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="downloadCSV()">
+      <mat-icon
+        svgIcon="app_icon_csv_download"
+        aria-label="export as CSV">
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="import PO"
+            matTooltip="import PO"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="importPO()">
+      <mat-icon
+        svgIcon="app_icon_po_file_import"
+        aria-label="import PO">
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="export PO"
+            matTooltip="export PO"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="openExportPoDialog()">
+      <mat-icon
+        svgIcon="app_icon_po_file_export"
+        aria-label="export PO">
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="export or import android xml"
+            matTooltip="export or import android xml"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="openAndroidDialog()">
+      <mat-icon aria-label="Add language">
+        adb
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="Add language"
+            matTooltip="Add language"
+            [disabled]="!translation.hasLoadedProject"
+            (click)="openAddLanguageDialog()">
+      <mat-icon aria-label="Add language">
+        note_add
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            *ngIf="translation.lastItems.length"
+            [matMenuTriggerFor]="lastProjectsMenu"
+            aria-label="last projects"
+            matTooltip="last projects">
+      <mat-icon
+        aria-label="open last project">
+        access_time
+      </mat-icon>
+    </button>
+    <mat-menu #lastProjectsMenu="matMenu">
+      <button
+        *ngFor="let item of translation.lastItems"
+        (click)="item.type === 'project' ? openProject(item.path) : openCollection(item.path)"
+        mat-menu-item>
+        {{item.name ? item.name : translation.createTitle(item.path)}}
+      </button>
+    </mat-menu>
+
+    <div class="spacer"></div>
+
+    <button mat-icon-button
+            aria-label="trim spaces"
+            matTooltip="trim spaces"
+            [disabled]="translation.shouldDisableOption('trim')"
+            [color]="translation.options.trim ? 'accent' : undefined"
+            (click)="translation.setOption('trim', !translation.options.trim)">
+      <mat-icon aria-label="trim spaces">
+        crop
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="minify source"
+            matTooltip="minify source (saves minified json)"
+            [disabled]="translation.shouldDisableOption('prettySource')"
+            [color]="translation.options.prettySource ?  undefined : 'accent'"
+            (click)="translation.setOption('prettySource', !translation.options.prettySource)">
+      <mat-icon aria-label="minify source">
+        broken_image
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="Enable notes"
+            matTooltip="Enable notes"
+            [disabled]="translation.shouldDisableOption('disableNotes')"
+            [color]="translation.options.disableNotes ?  undefined : 'accent'"
+            (click)="translation.setOption('disableNotes', !translation.options.disableNotes)">
+      <mat-icon aria-label="Enable notes">
+        add_comment
+      </mat-icon>
+    </button>
+
+    <mat-slide-toggle
+      matTooltip="Toggle dark theme"
+      [checked]="isDarkTheme"
+      (change)="onDarkThemeToggle($event.checked)">
+    </mat-slide-toggle>
+  </mat-toolbar-row>
+</mat-toolbar>

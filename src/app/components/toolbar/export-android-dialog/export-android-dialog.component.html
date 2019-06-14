@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add Language</h1>
+
+<div mat-dialog-content class="dialog-content">
+  <!-- it works, but might cause issues, need to rethink it -->
+
+  <mat-form-field>
+    <mat-label>Language</mat-label>
+    <select matNativeControl required [(ngModel)]="data.language">
+      <option *ngFor="let def of translationsService.languages"
+              [value]="def">
+        {{def | localeName}}
+      </option>
+    </select>
+  </mat-form-field>
+
+  <mat-button-toggle-group [(ngModel)]="data.isImport" name="isImport" aria-label="Should import">
+    <mat-button-toggle [value]="true">Import</mat-button-toggle>
+    <mat-button-toggle [value]="false">Export</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <span class="mat-caption">Please notice that Android requires the keys to be snake cased (hello_world).</span>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button
+          [disabled]="!data.language"
+          [mat-dialog-close]="data"
+          cdkFocusInitial>Done</button>
+</div>

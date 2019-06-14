@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Add text</h1>
+
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <input placeholder="key" matInput [(ngModel)]="data.key" required>
+  </mat-form-field>
+
+  <mat-form-field *ngFor="let lang of translationsService.languages">
+    <input [placeholder]="lang" matInput [(ngModel)]="data[lang]">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button
+          [disabled]="!data.key"
+          [mat-dialog-close]="data"
+          cdkFocusInitial>Done</button>
+</div>

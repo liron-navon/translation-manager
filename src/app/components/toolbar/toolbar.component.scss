@@ -1,0 +1,15 @@
+.white-icon {
+  color: white;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+  fill: white;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.mat-menu-panel {
+  max-width: 600px;
+}

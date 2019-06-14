@@ -1,0 +1,58 @@
+<main class="container">
+  <section class="translations-container">
+    <h2 class="mat-h2 translations-title">
+      Translations
+    </h2>
+    <ng-container *ngFor="let item of translationsService.activeTranslationSet">
+      <mat-form-field
+        *ngIf="item.language !== translationsService.config.notesFileName"
+        [ngClass]="{ 'form-field-warning': !item.value}">
+      <textarea
+        class="mousetrap"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        (input)="translationsService.onTranslationInput(item.language, $event.target.value)"
+        [placeholder]="item.language | localeName"
+        [value]="item.value">
+      </textarea>
+      </mat-form-field>
+    </ng-container>
+  </section>
+
+  <section class="notes-container" *ngIf="!translationsService.options.disableNotes && notes">
+    <h3 class="mat-h3">
+      Notes
+    </h3>
+    <quill-editor [(ngModel)]="notes.value"
+                  (onSelectionChanged)="translationsService.onTranslationInput(notes.language, notes.value)">
+      <div quill-editor-toolbar class="mousetrap">
+      <span class="ql-formats">
+         <select class="ql-size">
+            <option value="small"></option>
+            <option selected></option>
+            <option value="large"></option>
+            <option value="huge"></option>
+         </select>
+      </span>
+        <span class="ql-formats">
+      <button class="ql-bold" matTooltip="Bold"></button>
+      <button class="ql-italic" matTooltip="Italic"></button>
+      <button class="ql-underline" matTooltip="Underline"></button>
+      <button class="ql-strike" matTooltip="Strike"></button>
+      </span>
+        <span class="ql-formats">
+      <select class="ql-color" matTooltip="Text color"></select>
+      <select class="ql-background" matTooltip="Text background"></select>
+      </span>
+        <span class="ql-formats">
+      <button class="ql-list" value="ordered" matTooltip="Ordered list"></button>
+      <button class="ql-list" value="bullet" matTooltip="Bullets list"></button>
+      </span>
+        <span class="ql-formats">
+      <button class="ql-link" matTooltip="Hyperlink"></button>
+      </span>
+      </div>
+    </quill-editor>
+  </section>
+</main>
