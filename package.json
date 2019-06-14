@@ -1,6 +1,7 @@
 {
   "name": "translation-manager",
   "version": "0.1.0",
+  "license": "MIT",
   "description": "Manage large scale translation projects with ease",
   "author": {
     "name": "Liron Navon",
