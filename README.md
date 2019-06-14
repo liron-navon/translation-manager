@@ -15,8 +15,8 @@ Ctrl/Command + P => Select Project
   
 Ctrl + Tab => next keyword  
   
-![Screenshot dark](https://imgur.com/Vcj3NHJ)  
-![Screenshot light](https://imgur.com/6dd6iSz)  
+![Screenshot dark](https://imgur.com/Vcj3NHJ.png)  
+![Screenshot light](https://imgur.com/6dd6iSz.png)  
   
 ##### tasks:  
 * need to add a nice icon  
