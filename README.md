@@ -7,7 +7,7 @@ To see an example, open the file `examples_directory/translation.project.json5` 
 Downloads: 
 <a href="https://srv-file2.gofile.io/download/FKrvvc/translationmanager011exe.zip">Windows</a>,
 <a href="https://srv-file2.gofile.io/download/FKrvvc/translationmanager-011dmg.zip">Mac</a>,
-<a href="https://gofile.io/?c=FKrvvc" download>Gofile.io</a>
+or check the files with their checksum at <a href="https://gofile.io/?c=FKrvvc" download>Gofile.io</a>
   
 ## installation
 Since this app is not certified with apple/windows (costs well over 1000$ per year to get certifications), you might need a few extra steps:
