@@ -36,7 +36,6 @@ Ctrl + Tab => next keyword
 ![Screenshot light](https://imgur.com/6dd6iSz.png)  
   
 ##### tasks:  
-* need to add a nice icon  
 * need to add import/export for whole collection  
-  
-* this project is built with https://github.com/maximegris/angular-electron
+
+** this project is built with https://github.com/maximegris/angular-electron
