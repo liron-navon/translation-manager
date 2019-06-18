@@ -222,7 +222,6 @@ export class TranslationsService {
     if (this.activeTranslationSet) {
       this.syncTranslations();
     }
-    this.keywords = this.createKeywords(this.project.files);
     this.activeKeyword = keyword;
     this.activeTranslationSet = this.createTranslationSet(keyword);
   }
