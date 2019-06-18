@@ -5,8 +5,8 @@ A tool to help and automate the management of translation files in a large scale
 To see an example, open the file `examples_directory/translation.project.json5` as a collection of projects, or the folder `examples_directory/feature-a` as a project.   
   
 Downloads: 
-<a href="https://srv-file2.gofile.io/download/FKrvvc/translationmanager011exe.zip" download>Windows</a>,
-<a href="https://srv-file2.gofile.io/download/FKrvvc/translationmanager-011dmg.zip" download>Mac</a>,
+<a href="https://srv-file2.gofile.io/download/FKrvvc/translationmanager011exe.zip">Windows</a>,
+<a href="https://srv-file2.gofile.io/download/FKrvvc/translationmanager-011dmg.zip">Mac</a>,
 <a href="https://gofile.io/?c=FKrvvc" download>Gofile.io</a>
   
 ## installation
