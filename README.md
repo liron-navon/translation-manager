@@ -40,9 +40,8 @@ Ctrl + Tab => next keyword
 ![Screenshot light](https://imgur.com/6dd6iSz.png)  
   
 ##### Features coming up:  
-* A nicee icon  
 * import/export for whole collection   (currently work per feature/project)
 * Auto translate with yandex/google
-* Add flags
+* Add flags/tags
   
 ** this project is built with https://github.com/maximegris/angular-electron
