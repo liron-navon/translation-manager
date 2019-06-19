@@ -1,4 +1,6 @@
 ### Translation manager  
+
+  <img height="128px" width="128px" src="https://raw.githubusercontent.com/liron-navon/translation-manager/master/logo.png" alt="Sublime's custom image"/>
  
 A tool to help and automate the management of translation files in a large scale project, it allows you to import/export multiple formats including PO,CSV,XML (android) and manages the translation files as JSON for the ease of use in most web projects.
  
