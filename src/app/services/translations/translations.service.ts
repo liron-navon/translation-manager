@@ -22,7 +22,8 @@ export class TranslationsService {
   public _options: TranslationServiceOptions = {
     trim: false,
     prettySource: false,
-    disableNotes: false
+    disableNotes: false,
+    allowNewLines: true
   };
 
   public config = {

@@ -57,6 +57,9 @@ export const registerSaveChanges = (window: BrowserWindow) => {
         }
         value = trim(value);
       }
+      if (!options.allowNewLines && isString(value)) {
+        value = value.replace('\n', ' ');
+      }
       return value;
     };
 

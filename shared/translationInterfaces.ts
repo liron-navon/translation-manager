@@ -27,6 +27,7 @@ export interface TranslationServiceOptions {
   trim: boolean;
   prettySource: boolean;
   disableNotes: boolean;
+  allowNewLines: boolean;
 }
 
 export interface Keyword {
@@ -51,7 +52,7 @@ export interface Collection {
   projects: CollectionProject[];
   options: {
 
-  }
+  };
 }
 
 export interface StorageItem {
