@@ -43,7 +43,7 @@
         aria-label="import CSV">
       </mat-icon>
     </button>
-    
+
     <button mat-icon-button
             aria-label="export as CSV"
             matTooltip="export as CSV"
@@ -148,6 +148,17 @@
             (click)="translation.setOption('disableNotes', !translation.options.disableNotes)">
       <mat-icon aria-label="Enable notes">
         add_comment
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button
+            aria-label="Write newlines"
+            matTooltip="Write newlines"
+            [disabled]="translation.shouldDisableOption('allowNewLines')"
+            [color]="translation.options.allowNewLines ?  'accent' : undefined"
+            (click)="translation.setOption('allowNewLines', !translation.options.allowNewLines)">
+      <mat-icon aria-label="Allow newlines">
+        reorder
       </mat-icon>
     </button>
 

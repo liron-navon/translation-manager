@@ -97,6 +97,9 @@ exports.registerSaveChanges = function (window) {
                     }
                     value = trim(value);
                 }
+                if (!options.allowNewLines && isString(value)) {
+                    value = value.replace('\n', ' ');
+                }
                 return value;
             };
             Object.values(project.files).forEach(function (file) {
