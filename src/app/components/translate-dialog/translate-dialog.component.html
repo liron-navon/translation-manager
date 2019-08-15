@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Translate {{ data.translateAll ? 'All' : 'Field' }}</h1>
+
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <mat-label>Field{{ data.translateAll ? "'s" : '' }} to translate</mat-label>
+    <select [disabled]="!data.translateAll" matNativeControl required [(ngModel)]="data.translateTo">
+      <option  *ngFor="let def of data.languages"
+              [value]="def">
+        {{def | localeName}}
+      </option>
+    </select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button
+          [disabled]="!data.translateTo && !data.translateFrom"
+          [mat-dialog-close]="data"
+          cdkFocusInitial>Translate to {{data.translateTo | localeName}}</button>
+</div>

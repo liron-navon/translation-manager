@@ -2,10 +2,13 @@ import {Component, OnDestroy, OnInit, NgZone} from '@angular/core';
 import {TranslationsService} from '../../services/translations/translations.service';
 import {MatDialog} from '@angular/material';
 import {CreateTextDialogComponent} from './create-text-dialog/create-text-dialog.component';
-import {Kvp} from '../../../../shared/translationInterfaces';
+import {Kvp, TranslationSet, Keyword} from '../../../../shared/translationInterfaces';
 import Mousetrap from 'mousetrap';
 import trim from 'lodash/trim';
-
+import { setCORS } from 'google-translate-api-browser';
+import {TranslateDialogComponent} from '../translate-dialog/translate-dialog.component';
+import {getLanguageCode} from '../../services/translations/languageCode';
+import {escapeHtml} from '../../services/translations/escapeHTML';
 /**
  * The menu on the left side that allows us to select items
  */
@@ -131,4 +134,35 @@ export class ItemSelectorMenuComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.registerShortcuts();
   }
+
+  openTranslateDialog(): void {
+    const dialogRef = this.dialog.open(TranslateDialogComponent, {
+      width: '300px',
+      data: { translateAll: true }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.translate(result);
+      }
+    });
+  }
+
+   translate(translationData): void {
+    const keywords = this.translationsService.keywords;
+    keywords.forEach((keyword: Keyword) => {
+        this.translationsService.selectActiveKeyword(keyword.key);
+        const activeTranslationSet: TranslationSet[] = this.translationsService.activeTranslationSet;
+        activeTranslationSet.map(async (set: TranslationSet) => {
+          if (set.language === translationData.translateTo) {
+            const translate = setCORS('http://cors-anywhere.herokuapp.com/');
+            const result: any = await translate(set.value, { to: getLanguageCode(translationData.translateTo) });
+            if (result) {
+              this.translationsService.onTranslationInput(set.language, escapeHtml(result.text));
+            }
+          }
+        });
+    });
+  }
+
 }

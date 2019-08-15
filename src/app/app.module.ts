@@ -27,6 +27,7 @@ import {LocaleNamePipe} from './pipes/locale-name.pipe';
 import {ExportPoDialogComponent} from './components/toolbar/export-po-dialog/export-po-dialog.component';
 import {ExportAndroidDialogComponent} from './components/toolbar/export-android-dialog/export-android-dialog.component';
 import { ProjectSelectorMenuComponent } from './components/project-selector-menu/project-selector-menu.component';
+import {TranslateDialogComponent} from './components/translate-dialog/translate-dialog.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -37,7 +38,8 @@ const dialogs = [
   CreateTextDialogComponent,
   AddLanguageDialogComponent,
   ExportPoDialogComponent,
-  ExportAndroidDialogComponent
+  ExportAndroidDialogComponent,
+  TranslateDialogComponent
 ];
 
 const pipes = [

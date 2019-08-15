@@ -1,5 +1,18 @@
 <div class="wrapper">
-  <h2 class="mat-h2">Keywords</h2>
+  <div class="controls">
+      <h2 class="flex-1 mat-h2">Keywords</h2>
+      <!--disabled for now result in 429 (Too Many Requests) from google translate-->
+      <button disabled mat-icon-button
+      mat-raised-button
+      (click)="openTranslateDialog()"
+      aria-label="Translate all"
+      matTooltip="Translate all">
+        <mat-icon aria-label="Translate all" color="accent">
+            language
+        </mat-icon>
+     </button>
+  </div>
+
   <span class="mat-caption">
     Total {{ translationsService.keywords && translationsService.keywords.length || 0 }}
     texts, {{ translationsService.keywordsWarnings || 0 }} warnings
