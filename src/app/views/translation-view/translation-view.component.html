@@ -4,19 +4,31 @@
       Translations
     </h2>
     <ng-container *ngFor="let item of translationsService.activeTranslationSet">
-      <mat-form-field
+      <mat-form-field appearance="outline"
         *ngIf="item.language !== translationsService.config.notesFileName"
         [ngClass]="{ 'form-field-warning': !item.value}">
+
+      <mat-label>{{ item.language | localeName}}</mat-label>
       <textarea
         class="mousetrap"
         matInput
-        cdkTextareaAutosize
         cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="10"
         (input)="translationsService.onTranslationInput(item.language, $event.target.value)"
         [placeholder]="item.language | localeName"
         [value]="item.value">
       </textarea>
+
+      <button mat-icon-button  matSuffix (click)="openTranslateDialog(item.language)">
+        <mat-icon
+        aria-label="translate"
+        color="accent">
+          language
+        </mat-icon>
+      </button>
+
       </mat-form-field>
+
     </ng-container>
   </section>
 
