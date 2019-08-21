@@ -6,7 +6,7 @@ A tool to help and automate the management of translation files in a large scale
 
 To get started please see the [wiki - getting started page](https://github.com/liron-navon/translation-manager/wiki/Getting-started) 
   
-Downloads (version 0.1.1): <a href="https://firebasestorage.googleapis.com/v0/b/random-b7a2e.appspot.com/o/translation%20manager%200.2.0.exe?alt=media&token=445b2174-e434-4e85-ae07-488d5b1cea53">Windows</a>,<a href="https://firebasestorage.googleapis.com/v0/b/random-b7a2e.appspot.com/o/translation%20manager-0.2.0.dmg?alt=media&token=bbfe880a-2814-4d02-a59f-25a1d00aff44">Mac</a>
+Downloads (version 0.2.0): <a href="https://firebasestorage.googleapis.com/v0/b/random-b7a2e.appspot.com/o/translation%20manager%200.2.0.exe?alt=media&token=445b2174-e434-4e85-ae07-488d5b1cea53">Windows</a>,<a href="https://firebasestorage.googleapis.com/v0/b/random-b7a2e.appspot.com/o/translation%20manager-0.2.0.dmg?alt=media&token=bbfe880a-2814-4d02-a59f-25a1d00aff44">Mac</a>
   
 ## installation
 Since this app is not certified with apple/windows (costs well over 1000$ per year to get certifications), you might need a few extra steps:
